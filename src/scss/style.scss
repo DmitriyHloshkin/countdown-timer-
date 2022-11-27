@@ -1,3 +1,13 @@
 @import '../../node_modules/normalize.css/normalize';
 @import 'variable/variables';
 @import 'mixins/mixins';
+@import 'blocks/counter';
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
