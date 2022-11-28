@@ -1,13 +1,36 @@
 .counter {
-  width: 400px;
-  height: 50px;
+  max-width: 500px;
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #000000;
+  font-size: 25px;
 
-  div {
-    color: white;
+  &__elem {
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
   }
 
+  #seconds,
+  #minutes,
+  #hours,
+  #days {
+    font-size: 32px;
+    background: #c4f9e7;
+    border-radius: 50%;
+    width: $circle-size;
+    height: $circle-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 }

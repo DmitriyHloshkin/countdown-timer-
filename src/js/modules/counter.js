@@ -7,17 +7,21 @@ class Counter {
     selectorHours,
     selectorMinutes,
     selectorSeconds,
-    timeToStop
+    timeToStop,
+    circle,
   }) {
     this.elemDays = document.querySelector(selectorDays);
     this.elemHours = document.querySelector(selectorHours);
     this.elemMinutes = document.querySelector(selectorMinutes);
     this.elemSeconds = document.querySelector(selectorSeconds);
+    this.circle = circle;
     this.timeToStop = Date.parse(timeToStop) + this.#timeZoneOffsetInMs;
   }
 
   init() {
     const timeRemaining = this.#getTimeRemaining();
+    this.#changeCounterCircle({ ...timeRemaining, ...this.circle});
+    
     this.elemDays.textContent     = timeRemaining.days < 10 ? `0${timeRemaining.days}` : timeRemaining.days;
     this.elemHours.textContent    = timeRemaining.hours < 10 ? `0${timeRemaining.hours}` : timeRemaining.hours;
     this.elemMinutes.textContent  = timeRemaining.minutes < 10 ? `0${timeRemaining.minutes}` : timeRemaining.minutes;
@@ -51,18 +55,31 @@ class Counter {
     };
   }
 
+  #changeCounterCircle({days, hours, minutes, seconds, circleSeconds, circleMinutes, circleHours, circleDays }) {
+    const elemCircleSec = document.querySelector(circleSeconds),
+          elemCircleMin = document.querySelector(circleMinutes),
+          elemCircleHour = document.querySelector(circleHours),
+          elemCircleDay = document.querySelector(circleDays);
+
+    elemCircleSec.style.strokeDasharray = `${seconds} 60`;
+    elemCircleMin.style.strokeDasharray = `${minutes} 60`;
+    elemCircleHour.style.strokeDasharray = `${60 / 24 * hours} 60`;
+    elemCircleDay.style.strokeDasharray = `${60 / 365 * days} 60`;
+  }
+
 }
 
-export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds, timeToStop}) => {
+export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds, timeToStop, circle , descr }) => {
   const endDay = new Date().setHours(23, 59, 59, 999);
   timeToStop = timeToStop ?? new Date(endDay);
 
   const counter = new Counter({
-    selectorDays: selectorDays ?? '#counter__days',
-    selectorHours: selectorHours ?? '#counter__hours',
-    selectorMinutes: selectorMinutes ?? '#counter__minutes',
-    selectorSeconds: selectorSeconds ?? '#counter__seconds',
+    selectorDays: selectorDays ?? '#days',
+    selectorHours: selectorHours ?? '#hours',
+    selectorMinutes: selectorMinutes ?? '#minutes',
+    selectorSeconds: selectorSeconds ?? '#seconds',
     timeToStop,
+    circle,
   });
 
   counter.init();

@@ -7,7 +7,7 @@ const buildFolder = './dist',
 
 export const path = {
   build: {
-    files: `${buildFolder}/files/`,
+    fonts: `${buildFolder}/fonts/`,
     html:  `${buildFolder}/`,
     scss:  `${buildFolder}/css/`,
     js:    `${buildFolder}/js/`,
@@ -15,7 +15,7 @@ export const path = {
   },
 
   src: {
-    files: `${srcFolder}/files/**/*.*`,
+    fonts: `${srcFolder}/fonts/**/*.*`,
     html:  `${srcFolder}/*.html`,
     scss:  `${srcFolder}/+(sass|scss)/*.+(scss|sass)`,
     js:    `${srcFolder}/js/*.js`,
@@ -24,7 +24,7 @@ export const path = {
   },
 
   watch: {
-    files: `${srcFolder}/files/**/*.*`,
+    fonts: `${srcFolder}/fonts/**/*.*`,
     html:  `${srcFolder}/**/*.html`,
     scss:  `${srcFolder}/+(sass|scss)/**/*.+(scss|sass|css)`,
     js:    `${srcFolder}/js/**/*.js`,

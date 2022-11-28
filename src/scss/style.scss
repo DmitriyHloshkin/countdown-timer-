@@ -1,13 +1,18 @@
-@import '../../node_modules/normalize.css/normalize';
-@import 'variable/variables';
-@import 'mixins/mixins';
-@import 'blocks/counter';
+@import "../../node_modules/normalize.css/normalize";
+@import "fonts/roboto";
+@import "variable/variables";
+@import "mixins/mixins";
+@import "blocks/counter";
+@import "blocks/header";
+@import "svg-style/counter-circle";
 
 .main {
+  font-family: "Roboto", sans-serif;
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  background-color: black;
+  background: #13fd8d;
 }

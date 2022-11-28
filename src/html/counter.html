@@ -1,18 +1,54 @@
 <div class="counter">
-  <div>
-    <span id="counter__days"></span>:
+  <div class="counter__elem">
+
+    <div class="circle">
+      <svg class="circle__svg" viewBox="0 0 100 100">
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#0047FFC7"></stop>
+          <stop offset="100%" stop-color="#19E452"></stop>
+        </linearGradient>
+        <circle class="circle__segment-days" r="9.55%" cx="50%" cy="50%"></circle>
+      </svg>
+    </div>
+
+    <span id="days">00</span>
+    <span class="counter__desc-days">дней</span>
   </div>
-  
-  <div>
-    <span id="counter__hours"></span>:
+
+  <div class="counter__elem">
+
+    <div class="circle">
+      <svg class="circle__svg" viewBox="0 0 100 100">
+        <circle class="circle__segment-hours" r="9.55%" cx="50%" cy="50%"></circle>
+      </svg>
+    </div>
+
+    <span id="hours">00</span>
+    <span class="counter__desc-hours">часов</span>
   </div>
-  
-  <div>
-    <span id="counter__minutes"></span>:
+
+  <div class="counter__elem">
+
+    <div class="circle">
+      <svg class="circle__svg" viewBox="0 0 100 100">
+        <circle class="circle__segment-minutes" r="9.55%" cx="50%" cy="50%"></circle>
+      </svg>
+    </div>
+
+    <span id="minutes">00</span>
+    <span class="counter__desc-minutes">минут</span>
   </div>
-  
-  <div>
-    <span id="counter__seconds"></span>
+
+  <div class="counter__elem">
+
+    <div class="circle">
+      <svg class="circle__svg" viewBox="0 0 100 100">
+        <circle class="circle__segment-seconds" r="9.55%" cx="50%" cy="50%"></circle>
+      </svg>
+    </div>
+
+    <span id="seconds">00</span>
+    <span class="counter__desc-seconds">секунд</span>
   </div>
 
 </div>
