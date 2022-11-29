@@ -17,9 +17,13 @@
 
   <main class="main">
     @@include("./html/header.html")
-    @@include("./html/counter.html")
-    <!-- @@include("./html/dateForm.html") -->
+    <div class="container">   
+      @@include("./html/counter.html")
+      @@include("./html/selectDate.html")
+    </div>
   </main>
+
+  @@include("./html/git-links.html")
 
   <script src="js/app.min.js"></script>
 </body>

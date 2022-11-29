@@ -1,5 +1,4 @@
 class Counter {
-  #timeZoneOffsetInMs = new Date().getTimezoneOffset() * 60 * 1000;
   stopCounter = false;
 
   constructor({
@@ -15,7 +14,7 @@ class Counter {
     this.elemMinutes = document.querySelector(selectorMinutes);
     this.elemSeconds = document.querySelector(selectorSeconds);
     this.circle = circle;
-    this.timeToStop = Date.parse(timeToStop) + this.#timeZoneOffsetInMs;
+    this.timeToStop = Date.parse(timeToStop);
   }
 
   init() {
@@ -70,7 +69,9 @@ class Counter {
 }
 
 export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds, timeToStop, circle , descr }) => {
-  const endDay = new Date().setHours(23, 59, 59, 999);
+  const endDay = new Date().setUTCHours(23, 59, 59, 999),
+        selectDateBtn = document.querySelector('.select-date__btn');
+
   timeToStop = timeToStop ?? new Date(endDay);
 
   const counter = new Counter({
@@ -83,11 +84,46 @@ export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds,
   });
 
   counter.init();
-  const counterId = setInterval(() => {
-    if (counter.stopCounter) {
-      clearInterval(counterId);
-      return;
+  displayEndDayDate(); 
+  startTimer(); 
+
+  selectDateBtn.addEventListener("click", () => {
+    let enterDate = document.querySelector('.select-date__inp').value,
+        headerTitle = 'До указанной даты осталось';
+
+    if (!enterDate) {
+      enterDate = endDay;
+      headerTitle = "До конца дня осталось";
     }
-    counter.init();
-  }, 1000);
+
+    const newDate = new Date(enterDate);
+    counter.timeToStop = newDate;
+
+    if (counter.stopCounter) {
+      counter.stopCounter = false;
+      startTimer(); 
+    }
+
+    changeHeaderTitle(headerTitle); 
+  });
+
+  function startTimer() {
+    const counterId = setInterval(() => {
+      if (counter.stopCounter) {
+        clearInterval(counterId);
+        return;
+      }
+      counter.init();
+    }, 1000);
+  }
+
+  function changeHeaderTitle(str) {
+    document.querySelector('.header__title').textContent = str;
+  }
+
+  function displayEndDayDate() {
+    const elemDateInp = document.querySelector('.select-date__inp');
+    elemDateInp.value = new Date(endDay).toISOString().replace(/:.{2}\..{4}/,'');
+  }
+
 };
