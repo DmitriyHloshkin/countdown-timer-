@@ -10,13 +10,13 @@
 
 .main {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: rgb(19, 253, 141);
 }
 .container {
   max-width: 500px;
-  height: calc(100vh - 90px);
+  min-height: calc(100vh - 90px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;

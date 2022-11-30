@@ -69,17 +69,15 @@ class Counter {
 }
 
 export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds, timeToStop, circle , descr }) => {
-  const endDay = new Date().setUTCHours(23, 59, 59, 999),
+  const endDay = new Date().setHours(23, 59, 59, 999),
         selectDateBtn = document.querySelector('.select-date__btn');
-
-  timeToStop = timeToStop ?? new Date(endDay);
 
   const counter = new Counter({
     selectorDays: selectorDays ?? '#days',
     selectorHours: selectorHours ?? '#hours',
     selectorMinutes: selectorMinutes ?? '#minutes',
     selectorSeconds: selectorSeconds ?? '#seconds',
-    timeToStop,
+    timeToStop: timeToStop ?? new Date(endDay),
     circle,
   });
 
@@ -122,7 +120,9 @@ export default ({ selectorDays, selectorHours, selectorMinutes, selectorSeconds,
   }
 
   function displayEndDayDate() {
-    const elemDateInp = document.querySelector('.select-date__inp');
+    const elemDateInp = document.querySelector('.select-date__inp'),
+          endDay = new Date().setUTCHours(23, 59, 59, 999);
+    
     elemDateInp.value = new Date(endDay).toISOString().replace(/:.{2}\..{4}/,'');
   }
 
