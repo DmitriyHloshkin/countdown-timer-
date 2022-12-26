@@ -1,26 +1,60 @@
 @import "../../node_modules/normalize.css/normalize";
-@import "fonts/roboto";
+@import "fonts/poppins.scss";
 @import "variable/variables";
 @import "mixins/mixins";
-@import "blocks/counter";
-@import "blocks/header";
-@import "svg-style/counter-circle";
-@import "blocks/select-date";
 @import "blocks/git-link";
 
-.main {
-  font-family: "Roboto", sans-serif;
-  min-height: 100vh;
-  width: 100%;
-  background: rgb(19, 253, 141);
+@import "blocks/header";
+@import "blocks/counter";
+@import "blocks/panel-elem";
+@import "blocks/tabs";
+
+:root {
+  --dark-color-text: rgba(255, 255, 255);
+  --dark-color-bg: rgba(9, 33, 67, 0.8);
+
+  --dark-color-panel-elem: #ffffff;
+
+  // TODO 
+  --dark-color-tabs-bg: rgb(86, 172, 136);
+  --dark-color-tabs-btn: rgb(86, 172, 136);
 }
-.container {
-  max-width: 500px;
-  min-height: calc(100vh - 90px);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgb(19, 253, 141);
+
+* {
+  font-family: 'Poppins';
+  font-size: 10px;
+  color: var(--dark-color-text);
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: "header header header" 
+                        "... tab_content ...";
+
+  grid-template-rows: $header-heigth 1fr;
+  grid-template-columns: .5fr 4fr .5fr;
+
+  background: var(--dark-color-bg);
+  backdrop-filter: blur(10px);
+}
+
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+  body {
+    grid-template-rows: $header-heigth-575 1fr;
+    grid-template-columns: 15% 1fr 15%;
+  }
 }

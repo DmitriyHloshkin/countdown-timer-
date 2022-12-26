@@ -1,0 +1,43 @@
+.panel-elem {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15%;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-panel-elem-color;
+  }
+
+  &:active {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__img {
+    width: 75%;
+    height: 75%;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .panel-elem { 
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .panel-elem { 
+    width: 30px;
+    height: 30px;
+
+    &:active {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

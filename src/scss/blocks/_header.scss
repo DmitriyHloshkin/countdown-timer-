@@ -1,41 +1,63 @@
 .header {
-  font-size: 20px;
-  color: #000000;
-  width: 100%;
-  height: 70px;
-  padding-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid rgb(0, 0, 0, .2);
+  grid-area: header;
+  display: grid;
+  grid-template: calc($header-heigth - 2px) 2px / 10% 1fr 10%;
+  max-height: $header-heigth;
+  
+  &__tabs {
+    @include align-elems-center-flex;
+    position: relative;
+  }
 
   &__title {
-    font-size: 36px;
     text-align: center;
     margin: 0;
+    line-height: $header-heigth;
+    font-style: normal;
+    font-weight: 250;
+    font-size: 40px;
+    letter-spacing: 0.125em;
+  }
+
+  &__mode {
+    @include align-elems-center-flex;
   }
 }
 
-@media (max-width: 1200px) {
-  .header {
-    &__title {
-      font-size: 28px;
-    }
-  }
+.horizont-line {
+  width: calc(100% - 2px);
+  grid-column: 1 / 5;
+  margin: 0;
+  border-color: var(--dark-color-panel-elem);
+  
 }
 
 @media (max-width: 991px) {
-  .header {
+  .header { 
     &__title {
-      font-size: 23px;
+      font-size: 32px;
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  .header { 
+    &__title {
+      font-size: 24px;
     }
   }
 }
 
-@media (max-width: 767px) {
-  .header {
+@media (max-width: 575px) {
+  .header { 
+    grid-template: calc($header-heigth-575 - 2px) 2px / 15% 1fr 15%;
+    max-height: $header-heigth-575;
+
     &__title {
-      font-size: 20px;
+      line-height: $header-heigth-575;
+      letter-spacing: 0.1em;
+      font-size: 16px;
     }
   }
 }

@@ -1,0 +1,65 @@
+.tabs {
+  position: absolute;
+  top:113%;
+  left: 51%;
+  list-style-type: none;
+  border-radius: 10%;
+  padding: {
+    left: 15px;
+    bottom: 5px;
+  }
+  margin: 0;
+  min-width: 220px;
+  background-color: $hover-panel-elem-color;
+
+  &__elem {
+    @include align-elems-center-flex;
+    justify-content: start;
+    position: relative; 
+    font-size: 16px;
+    min-height: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 29px;
+      display: block;
+      height: 2px;
+      width: 0;
+      background-color: var(--dark-color-panel-elem);
+      transition: width 2s;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        width: 83%;
+      }
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border:none;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+    
+  }
+
+  &__img {
+    width: 10%;
+    height: 100%;
+    transform: translateY(5px);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
