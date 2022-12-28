@@ -1,4 +1,4 @@
-.panel-elem {
+.header-btn {
   width: 45px;
   height: 45px;
   display: flex;
@@ -8,7 +8,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $hover-panel-elem-color;
+    background-color: var(--header-btn-hover);
   }
 
   &:active {
@@ -16,22 +16,22 @@
     height: 40px;
   }
 
-  &__img {
+  &__svg {
     width: 75%;
     height: 75%;
+    fill: var(--header-btn-color);
   }
 }
 
-
 @media (max-width: 991px) {
-  .panel-elem { 
+  .header-btn {
     width: 35px;
     height: 35px;
   }
 }
 
 @media (max-width: 767px) {
-  .panel-elem { 
+  .header-btn {
     width: 30px;
     height: 30px;
 

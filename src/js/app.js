@@ -1,8 +1,11 @@
 import { checkWebp } from './modules/gulpScripts.js';
-import timer from './modules/counter.js';
+import installTheme from './modules/theme.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+  const themesClass = ['dark-theme', 'light-theme'];
+
   checkWebp();
+  installTheme(themesClass);
   // timer({
   //   selectorDays: '#days',
   //   selectorHours: '#hours',

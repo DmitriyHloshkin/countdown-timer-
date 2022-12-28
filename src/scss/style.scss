@@ -5,56 +5,71 @@
 @import "blocks/git-link";
 
 @import "blocks/header";
-@import "blocks/counter";
-@import "blocks/panel-elem";
+@import "blocks/header-btn";
 @import "blocks/tabs";
+@import "blocks/counter";
 
-:root {
-  --dark-color-text: rgba(255, 255, 255);
-  --dark-color-bg: rgba(9, 33, 67, 0.8);
+:root.dark-theme {
+  // main
+  --main-color-text: rgba(179, 197, 239);
+  --main-color-bg: rgba(9, 33, 67, 0.8);
 
-  --dark-color-panel-elem: #ffffff;
+  // header-element
+  --header-btn-color: rgba(179, 197, 239);
+  --header-btn-hover: rgba(9, 33, 67, 0.2);
 
-  // TODO 
-  --dark-color-tabs-bg: rgb(86, 172, 136);
-  --dark-color-tabs-btn: rgb(86, 172, 136);
+  // tabs
+  --tabs-color-bg: rgba(9, 33, 67, 0.2);
+  --tabs-color-line: rgba(179, 197, 239);
+  --tabs-color-icon: rgba(179, 197, 239);
+}
+
+:root.light-theme {
+  // main
+  --main-color-text: hsla(214, 100%, 1%, 0.6);
+  --main-color-bg: rgb(240, 246, 255);
+
+  // header-element
+  --header-btn-color: hsla(214, 100%, 1%, 0.5);
+  --header-btn-hover: rgba(9, 33, 67, 0.2);
+
+  // tabs
+  --tabs-color-bg: rgb(255, 255, 255);
+  --tabs-color-line: hsla(214, 100%, 1%, 0.45);
+  --tabs-color-icon: hsla(214, 100%, 1%, 0.6);
 }
 
 * {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 10px;
-  color: var(--dark-color-text);
+  color: var(--main-color-text);
 }
 
 body {
   display: grid;
   min-height: 100vh;
-  grid-template-areas: "header header header" 
-                        "... tab_content ...";
+  grid-template-areas:
+    "header header header"
+    "... tab_content ...";
 
   grid-template-rows: $header-heigth 1fr;
-  grid-template-columns: .5fr 4fr .5fr;
+  grid-template-columns: 2fr 4fr 2fr;
 
-  background: var(--dark-color-bg);
+  background: var(--main-color-bg);
   backdrop-filter: blur(10px);
 }
 
-
 @media (max-width: 1200px) {
-
 }
 
 @media (max-width: 991px) {
-
 }
 
 @media (max-width: 767px) {
-
 }
 
 @media (max-width: 575px) {
   body {
     grid-template-rows: $header-heigth-575 1fr;
-    grid-template-columns: 15% 1fr 15%;
   }
 }

@@ -3,9 +3,12 @@
   display: grid;
   grid-template: calc($header-heigth - 2px) 2px / 10% 1fr 10%;
   max-height: $header-heigth;
-  
+  user-select: none;
+
   &__tabs {
-    @include align-elems-center-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
   }
 
@@ -20,7 +23,9 @@
   }
 
   &__mode {
-    @include align-elems-center-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -28,21 +33,19 @@
   width: calc(100% - 2px);
   grid-column: 1 / 5;
   margin: 0;
-  border-color: var(--dark-color-panel-elem);
-  
+  border-color: var(--header-btn-color);
 }
 
 @media (max-width: 991px) {
-  .header { 
+  .header {
     &__title {
       font-size: 32px;
     }
   }
-
 }
 
 @media (max-width: 767px) {
-  .header { 
+  .header {
     &__title {
       font-size: 24px;
     }
@@ -50,7 +53,7 @@
 }
 
 @media (max-width: 575px) {
-  .header { 
+  .header {
     grid-template: calc($header-heigth-575 - 2px) 2px / 15% 1fr 15%;
     max-height: $header-heigth-575;
 

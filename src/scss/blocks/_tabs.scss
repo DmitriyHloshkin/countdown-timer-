@@ -1,35 +1,37 @@
 .tabs {
   position: absolute;
-  top:113%;
-  left: 51%;
+  top: 113%;
+  left: 30%;
   list-style-type: none;
   border-radius: 10%;
-  padding: {
-    left: 15px;
-    bottom: 5px;
-  }
+  padding: 10px 0 5px 15px;
   margin: 0;
-  min-width: 220px;
-  background-color: $hover-panel-elem-color;
+  width: 220px;
+  background-color: var(--tabs-color-bg);
+  user-select: none;
 
   &__elem {
-    @include align-elems-center-flex;
+    display: flex;
+    align-items: center;
     justify-content: start;
-    position: relative; 
+    position: relative;
     font-size: 16px;
     min-height: 15px;
     padding-bottom: 5px;
-    margin-bottom: 10px;
-    
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
     &::before {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 29px;
+      left: 25px;
       display: block;
       height: 2px;
       width: 0;
-      background-color: var(--dark-color-panel-elem);
+      background-color: var(--tabs-color-line);
       transition: width 2s;
     }
 
@@ -37,29 +39,73 @@
       cursor: pointer;
 
       &::before {
-        width: 83%;
+        width: 80%;
       }
     }
   }
 
   &__btn {
     background-color: transparent;
-    border:none;
+    border: none;
     outline: none;
 
     &:hover {
       cursor: pointer;
     }
-    
   }
 
-  &__img {
-    width: 10%;
-    height: 100%;
-    transform: translateY(5px);
+  &__svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--tabs-color-icon);
 
     &:hover {
       cursor: pointer;
     }
   }
+}
+
+@media (max-width: 1200px) {
+  .tabs {
+    width: 190px;
+
+    &__btn {
+      line-height: 1;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    &__svg {
+      height: 20px;
+      width: 20px;
+    }
+
+    &__elem:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .tabs {
+    width: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabs {
+    left: 10%;
+    width: 125px;
+
+    &__btn {
+      font-size: 12px;
+    }
+
+    &__elem::before {
+      left: 20px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
 }
