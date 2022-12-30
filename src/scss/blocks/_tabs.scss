@@ -1,10 +1,11 @@
 .tabs {
+  display: none;
   position: absolute;
   top: 113%;
   left: 30%;
   list-style-type: none;
   border-radius: 10%;
-  padding: 10px 0 5px 15px;
+  padding: 10px 0 5px 0;
   margin: 0;
   width: 220px;
   background-color: var(--tabs-color-bg);
@@ -17,7 +18,9 @@
     position: relative;
     font-size: 16px;
     min-height: 15px;
-    padding-bottom: 5px;
+    padding: 0 0 5px 15px;
+    border-radius: 25px;
+    min-height: 43px;
 
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -27,7 +30,7 @@
       content: "";
       position: absolute;
       bottom: 0;
-      left: 25px;
+      left: 45px;
       display: block;
       height: 2px;
       width: 0;
@@ -39,7 +42,31 @@
       cursor: pointer;
 
       &::before {
-        width: 80%;
+        width: calc(100% - 55px);
+      }
+    }
+
+    &:active {
+      background-color: var(--tabs-btn-active);
+      transform: scale(0.95);
+      &::before {
+        width: 0;
+      }
+    }
+
+    &-active {
+      background-color: var(--tabs-btn-check);
+
+      .tabs__svg {
+        fill: var(--tabs-color-check);
+      }
+
+      .tabs__btn {
+        color: var(--tabs-color-check);
+      }
+
+      &::before {
+        background-color: var(--tabs-color-check);
       }
     }
   }
@@ -48,6 +75,8 @@
     background-color: transparent;
     border: none;
     outline: none;
+    min-width: 150px;
+    text-align: left;
 
     &:hover {
       cursor: pointer;
@@ -83,29 +112,51 @@
     &__elem:not(:last-child) {
       margin-bottom: 5px;
     }
+
+    &__elem {
+      &::before {
+        left: 40px;
+      }
+    }
   }
 }
 
 @media (max-width: 991px) {
   .tabs {
-    width: 150px;
+    width: 165px;
+
+    &__elem {
+      &::before {
+        left: 40px;
+      }
+    }
   }
 }
 
 @media (max-width: 767px) {
   .tabs {
     left: 10%;
-    width: 125px;
+    width: 140px;
 
     &__btn {
       font-size: 12px;
+      min-width: 145px;
     }
 
     &__elem::before {
-      left: 20px;
+      left: 40px;
+    }
+
+    &__elem:hover:before {
+      width: calc(100% - 47px);
     }
   }
 }
 
 @media (max-width: 575px) {
+  .tabs { 
+    &__svg {
+      height: 13px;
+    }
+  }
 }

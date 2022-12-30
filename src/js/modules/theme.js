@@ -1,16 +1,22 @@
-const installTheme = (themeClasses) => {
+import { changeSvg } from './general/general-scripts.js';
+import { setStorage, getStorageProp } from './general/localStorage.js';
+
+const installTheme = (themeClasses, storageState) => {
+
   const btnMode = document.querySelector('.header__mode .header-btn');
-        
-  changeMode('light-theme', themeClasses);
+  
+  let currentTheme = getStorageProp('theme') ? getStorageProp('theme') : 'light-theme';
+
+  changeMode(currentTheme, themeClasses);
+  changeSvg(btnMode.querySelector('use'), currentTheme);
 
   btnMode.addEventListener('click', () => {
-    const svgHref = btnMode.querySelector('use').getAttribute('xlink:href'),
-          currentTheme = svgHref.replace(/.+#/, ''),
+    const svgElem = btnMode.querySelector('use'),
+          currentTheme = svgElem.getAttribute('xlink:href').replace(/.+#/, ''),
           toogleTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
-    
-    changeMode(toogleTheme, themeClasses);
 
-    btnMode.querySelector('use').setAttribute('xlink:href', svgHref.replace(/#.+/, `#${toogleTheme}`));
+    changeSvg(svgElem, toogleTheme);
+    changeMode(toogleTheme, themeClasses);
   });
 
 
@@ -24,6 +30,9 @@ const installTheme = (themeClasses) => {
     });
 
     html.classList.add(selectTheme);
+    
+    storageState.theme = selectTheme;
+    setStorage(storageState);
 
   }
 };

@@ -7,7 +7,11 @@
 @import "blocks/header";
 @import "blocks/header-btn";
 @import "blocks/tabs";
-@import "blocks/counter";
+@import "blocks/main-content/counter";
+@import "blocks/main-content/calc";
+@import "blocks/main-content/gen-pass";
+@import "blocks/main-content/stopwarch";
+@import "blocks/main-content/todo-list";
 
 :root.dark-theme {
   // main
@@ -22,6 +26,9 @@
   --tabs-color-bg: rgba(9, 33, 67, 0.2);
   --tabs-color-line: rgba(179, 197, 239);
   --tabs-color-icon: rgba(179, 197, 239);
+  --tabs-btn-active: rgba(9, 33, 67, 0.2);
+  --tabs-btn-check: rgba(5, 122, 255);
+  --tabs-color-check: rgb(179, 197, 239);
 }
 
 :root.light-theme {
@@ -37,6 +44,10 @@
   --tabs-color-bg: rgb(255, 255, 255);
   --tabs-color-line: hsla(214, 100%, 1%, 0.45);
   --tabs-color-icon: hsla(214, 100%, 1%, 0.6);
+  --tabs-btn-active: rgba(9, 33, 67, 0.2);
+  --tabs-btn-check: rgba(5, 122, 255, .2);
+  --tabs-color-check: rgba(5, 122, 255, .7);
+
 }
 
 * {
@@ -57,6 +68,18 @@ body {
 
   background: var(--main-color-bg);
   backdrop-filter: blur(10px);
+}
+
+.main-content {
+    grid-area: tab_content;
+}
+
+.show-block {
+  display: block;
+}
+
+.show-flex {
+  display: flex;
 }
 
 @media (max-width: 1200px) {

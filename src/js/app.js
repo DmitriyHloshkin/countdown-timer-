@@ -1,11 +1,16 @@
-import { checkWebp } from './modules/gulpScripts.js';
+import { checkWebp } from './modules/general/gulpScripts.js';
 import installTheme from './modules/theme.js';
+import tabs from './modules/tabs.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const themesClass = ['dark-theme', 'light-theme'];
+  const themesClass = ['dark-theme', 'light-theme'],
+        storageState = {};
+
+
 
   checkWebp();
-  installTheme(themesClass);
+  installTheme(themesClass, storageState);
+  tabs();
   // timer({
   //   selectorDays: '#days',
   //   selectorHours: '#hours',

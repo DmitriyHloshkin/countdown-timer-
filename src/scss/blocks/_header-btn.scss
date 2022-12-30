@@ -1,6 +1,6 @@
 .header-btn {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,8 @@
   }
 
   &__svg {
-    width: 75%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     fill: var(--header-btn-color);
   }
 }
@@ -38,6 +38,10 @@
     &:active {
       width: 24px;
       height: 24px;
+    }
+
+    &__svg {
+      width: 50%;
     }
   }
 }
