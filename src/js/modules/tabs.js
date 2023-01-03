@@ -25,7 +25,7 @@ const tabs = () => {
           const tabContentId = tabsElem.getAttribute('data-type-content'),
                 tabContent = document.querySelector(`${contentSelector}[data-type-content='${tabContentId}']`);
           
-          tabContent.classList.add('show-block');
+          tabContent.classList.add('show-grid');
         }
     
         function hideTabs() {
@@ -34,7 +34,7 @@ const tabs = () => {
           });
     
           tabsContent.forEach(tab => {
-            tab.classList.remove('show-block');
+            tab.classList.remove('show-grid');
           });
         }
       });
@@ -69,7 +69,7 @@ const tabs = () => {
   initTab({
     tabSelector: '.tabs__elem',
     activeClass: 'tabs__elem-active',       
-    contentSelector: '.main-content > div',
+    contentSelector: '.main-content > section',
   });
 };
 

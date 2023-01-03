@@ -1,4 +1,6 @@
 @import "../../node_modules/normalize.css/normalize";
+@import "../../node_modules/animate.css/animate.min.css";
+@import "animation/animation";
 @import "fonts/poppins.scss";
 @import "variable/variables";
 @import "mixins/mixins";
@@ -7,7 +9,7 @@
 @import "blocks/header";
 @import "blocks/header-btn";
 @import "blocks/tabs";
-@import "blocks/main-content/counter";
+@import "blocks/main-content/countdown/counter";
 @import "blocks/main-content/calc";
 @import "blocks/main-content/gen-pass";
 @import "blocks/main-content/stopwarch";
@@ -29,6 +31,12 @@
   --tabs-btn-active: rgba(9, 33, 67, 0.2);
   --tabs-btn-check: rgba(5, 122, 255);
   --tabs-color-check: rgb(179, 197, 239);
+
+  // countdown
+  --input-out-color: hsl(222 66% 82%);
+  --input-color-bg: rgba(9, 33, 67, 0);
+  --input-color-bg-hover: #8778c7;
+
 }
 
 :root.light-theme {
@@ -47,6 +55,11 @@
   --tabs-btn-active: rgba(9, 33, 67, 0.2);
   --tabs-btn-check: rgba(5, 122, 255, .2);
   --tabs-color-check: rgba(5, 122, 255, .7);
+
+    // countdown
+  --input-out-color: hsl(222 66% 82%);
+  --input-color-bg: white;
+  --input-color-bg-hover: #d6f5ef;
 
 }
 
@@ -80,6 +93,10 @@ body {
 
 .show-flex {
   display: flex;
+}
+
+.show-grid {
+  display: grid;
 }
 
 @media (max-width: 1200px) {

@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const themesClass = ['dark-theme', 'light-theme'],
         storageState = {};
 
-
-
   checkWebp();
   installTheme(themesClass, storageState);
   tabs();

@@ -1,0 +1,81 @@
+@import './countdown';
+
+.counter {
+  // background: white;
+  display: none;
+  min-height: 100%;
+  grid-template-areas: "title-counter title-counter"
+                        "counter dates"
+                        "select-date dates"
+                        "start-btn dates";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 65px 170px 80px 80px;
+  gap: 15px;
+  align-items: start;
+
+  &__title {
+    grid-area: title-counter;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+    font: {
+      size: 26px;
+      weight: 500;
+    }
+
+    & span {
+      font-size: inherit;
+    }
+    
+  }
+
+  &__select-date {
+    grid-area: select-date;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 15px;
+    user-select: none;
+    
+
+    input {
+      position: relative;
+      @include defaultBtnStyles;
+
+      &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        inset: 0;
+        width: auto;
+        height: auto;
+        color: transparent;
+        background: transparent;
+        
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+  &__start-btn {
+    grid-area: start-btn;
+    @include defaultBtnStyles;
+    user-select: none;
+    transition: transform .25s ease-out;
+
+    &:active {
+      transform: scale(.95);
+    }
+
+    &:hover {
+      background-color: var(--input-color-bg-hover) ;
+    }
+
+  }
+
+  &__dates {
+    grid-area: dates;
+  }
+
+
+}
