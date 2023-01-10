@@ -1,0 +1,122 @@
+.dates-list {
+  grid-area: dates;
+  padding-left: 15px;
+  min-width: 482px;
+  padding-bottom: 20px;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  &__add {
+    display: flex;
+    justify-content: start;
+    max-width: 200px;
+    height: 25px;
+  }
+
+  &__svg,
+  &__btn-remove,
+  &__btn-select {
+    height: 100%;
+    width: 25px;
+    margin-right: 5px;
+    fill: var(--header-btn-color);
+  }
+
+  &__btn-remove,
+  &__btn-select {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 100%;
+    margin-right: 5px;
+    outline: none;
+  }
+
+  &__btn-select {
+    width: 30px;
+  }
+
+  &__svg-mr0 {
+    margin-right: 0;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding-top: 5px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 20px;
+    margin-top: 10px;
+  }
+
+  &__name,
+  &__date,
+  &__confirm-delete {
+    height: 100%;
+    width: auto;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    margin-right: 10px;
+    border-bottom: 2px solid var(--input-out-color);
+    padding: 0;
+  }
+
+  &__confirm-delete {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    span {
+      font-size: 13px;
+    }
+  }
+
+  &__yes-delete,
+  &__no-delete {
+    height: 100%;
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &__yes-delete {
+    margin: 0 10px;
+  }
+
+  &__date {
+    text-align: center;
+    position: relative;
+
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      inset: 0;
+      width: auto;
+      height: auto;
+      color: transparent;
+      background: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .dates-list {
+    align-self: start;
+  }
+}

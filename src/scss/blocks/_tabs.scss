@@ -10,6 +10,7 @@
   width: 220px;
   background-color: var(--tabs-color-bg);
   user-select: none;
+  z-index: 2;
 
   &__elem {
     display: flex;
@@ -154,7 +155,7 @@
 }
 
 @media (max-width: 575px) {
-  .tabs { 
+  .tabs {
     &__svg {
       height: 13px;
     }

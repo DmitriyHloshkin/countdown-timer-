@@ -1,7 +1,44 @@
 <section class="counter" data-type-content="counter">
   <h1 class="counter__title">До <span>указанной даты</span> осталось</h1>
-  <div class="counter__dates">
 
+  <div class="dates-list">
+    <h1 class="dates-list__title">Важные даты:</h1>
+
+    <button class="dates-list__add main-btn">
+      <svg class="dates-list__svg">
+        <use xlink:href="./img/dates-list/dates-list-sprint.svg#plus"></use>
+      </svg>
+      Добавить дату
+    </button>
+
+    <ul class="dates-list__list">
+      <!-- <li class="dates-list__item">
+
+        <button class="dates-list__btn-remove main-btn" title="удалить дату">
+          <svg class="dates-list__svg dates-list__svg-mr0">
+            <use xlink:href="./img/dates-list/dates-list-sprint.svg#minus"></use>
+          </svg>
+        </button>
+
+        <input type="text" class="dates-list__name" maxlength="25">
+
+        <div class="dates-list__confirm-delete">
+          <span>Желаете удалить дату?</span>
+          <button class="dates-list__yes-delete main-btn">Да</button>
+          <button class="dates-list__no-delete main-btn">Нет</button>
+        </div>
+
+        <input type="datetime-local" class="dates-list__date">
+
+        <button class="dates-list__btn-select main-btn" title="установить дату">
+          <svg class="dates-list__svg dates-list__svg-mr0">
+            <use xlink:href="./img/dates-list/dates-list-sprint.svg#select"></use>
+          </svg>
+        </button>
+
+      </li> -->
+
+    </ul>
   </div>
 
   <div class="countdown">
@@ -59,9 +96,9 @@
   </div>
 
   <div class="counter__select-date">
-    <input type="datetime-local" name="selected-date" id="select-date" value="2017-06-01T08:30">
+    <input class="main-btn" type="datetime-local" name="current-date" id="select-date" >
   </div>
 
-  <button class="counter__start-btn">СТАРТ</button>
+  <button class="counter__start-btn main-btn">СТАРТ</button>
 
 </section>

@@ -1,13 +1,14 @@
-@import './countdown';
+@import "./countdown";
+@import "./dates-list";
 
 .counter {
-  // background: white;
   display: none;
   min-height: 100%;
-  grid-template-areas: "title-counter title-counter"
-                        "counter dates"
-                        "select-date dates"
-                        "start-btn dates";
+  grid-template-areas:
+    "title-counter title-counter"
+    "counter dates"
+    "select-date dates"
+    "start-btn dates";
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 65px 170px 80px 80px;
   gap: 15px;
@@ -26,7 +27,6 @@
     & span {
       font-size: inherit;
     }
-    
   }
 
   &__select-date {
@@ -35,11 +35,9 @@
     align-items: flex-start;
     padding-top: 15px;
     user-select: none;
-    
 
     input {
       position: relative;
-      @include defaultBtnStyles;
 
       &::-webkit-calendar-picker-indicator {
         position: absolute;
@@ -48,34 +46,45 @@
         height: auto;
         color: transparent;
         background: transparent;
-        
+
         &:hover {
           cursor: pointer;
         }
       }
-
     }
   }
 
   &__start-btn {
     grid-area: start-btn;
-    @include defaultBtnStyles;
     user-select: none;
-    transition: transform .25s ease-out;
+  }
+}
 
-    &:active {
-      transform: scale(.95);
+@media (max-width: 1200px) {
+  .counter {
+    grid-template-areas:
+      "title-counter"
+      "counter"
+      "select-date"
+      "start-btn"
+      "dates";
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 170px 80px 80px 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .counter {
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 50px 150px 80px 80px 1fr;
+
+    &__select-date {
+      width: 90%;
     }
 
-    &:hover {
-      background-color: var(--input-color-bg-hover) ;
+    &__start-btn {
+      width: 90%;
     }
-
   }
-
-  &__dates {
-    grid-area: dates;
-  }
-
-
 }

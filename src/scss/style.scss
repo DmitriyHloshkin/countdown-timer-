@@ -1,19 +1,22 @@
 @import "../../node_modules/normalize.css/normalize";
-@import "../../node_modules/animate.css/animate.min.css";
-@import "animation/animation";
 @import "fonts/poppins.scss";
-@import "variable/variables";
-@import "mixins/mixins";
 @import "blocks/git-link";
+@import "blocks/btns";
 
 @import "blocks/header";
-@import "blocks/header-btn";
 @import "blocks/tabs";
 @import "blocks/main-content/countdown/counter";
+
 @import "blocks/main-content/calc";
 @import "blocks/main-content/gen-pass";
 @import "blocks/main-content/stopwarch";
 @import "blocks/main-content/todo-list";
+
+:root {
+  --circle-size: 130px;
+  --header-heigth: 65px;
+  --header-heigth-575: 50px;
+}
 
 :root.dark-theme {
   // main
@@ -25,7 +28,7 @@
   --header-btn-hover: rgba(9, 33, 67, 0.2);
 
   // tabs
-  --tabs-color-bg: rgba(9, 33, 67, 0.2);
+  --tabs-color-bg: rgba(9, 33, 67);
   --tabs-color-line: rgba(179, 197, 239);
   --tabs-color-icon: rgba(179, 197, 239);
   --tabs-btn-active: rgba(9, 33, 67, 0.2);
@@ -36,7 +39,11 @@
   --input-out-color: hsl(222 66% 82%);
   --input-color-bg: rgba(9, 33, 67, 0);
   --input-color-bg-hover: #8778c7;
+  --circle-color-bg: rgba(9, 33, 67, 0.2);
 
+  // animation
+  --anim-border-color: #d82b56;
+  --anim-text-color: #d82b56;
 }
 
 :root.light-theme {
@@ -53,14 +60,18 @@
   --tabs-color-line: hsla(214, 100%, 1%, 0.45);
   --tabs-color-icon: hsla(214, 100%, 1%, 0.6);
   --tabs-btn-active: rgba(9, 33, 67, 0.2);
-  --tabs-btn-check: rgba(5, 122, 255, .2);
-  --tabs-color-check: rgba(5, 122, 255, .7);
+  --tabs-btn-check: rgba(5, 122, 255, 0.2);
+  --tabs-color-check: rgba(5, 122, 255, 0.7);
 
-    // countdown
+  // countdown
   --input-out-color: hsl(222 66% 82%);
   --input-color-bg: white;
   --input-color-bg-hover: #d6f5ef;
+  --circle-color-bg: white;
 
+    // animation
+    --anim-border-color: #d82b56;
+    --anim-text-color: #d82b56;
 }
 
 * {
@@ -76,7 +87,7 @@ body {
     "header header header"
     "... tab_content ...";
 
-  grid-template-rows: $header-heigth 1fr;
+  grid-template-rows: var(--header-heigth) 1fr;
   grid-template-columns: 2fr 4fr 2fr;
 
   background: var(--main-color-bg);
@@ -84,7 +95,7 @@ body {
 }
 
 .main-content {
-    grid-area: tab_content;
+  grid-area: tab_content;
 }
 
 .show-block {
@@ -110,6 +121,6 @@ body {
 
 @media (max-width: 575px) {
   body {
-    grid-template-rows: $header-heigth-575 1fr;
+    grid-template-rows: var(--header-heigth-575) 1fr;
   }
 }
