@@ -1,0 +1,197 @@
+.todo-list {
+  justify-items: center;
+  display: none;
+  min-height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: -2;
+  grid-template-areas:
+    "create-task"
+    "tasks";
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px auto;
+
+  .create-task {
+    position: relative;
+    color: var(--main-color-text);
+    background: var(--tabs-color-bg);
+    width: 656px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 30px;
+    outline: none;
+    overflow: hidden;
+    grid-area: create-task;
+
+    font: {
+      weight: 400;
+      size: 22px;
+    }
+
+    &__new-todo {
+      padding-left: 25px;
+      background: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      height: 100%;
+
+      &::placeholder {
+        color: var(--main-color-text);
+      }
+    }
+
+    &__new-todo-btn {
+      position: absolute;
+      right: -10px;
+      top: 0;
+      border: none;
+      width: 110px;
+      height: 100%;
+      background: url(../img/todo-list/Arrow.png) center center/50% 50% no-repeat var(--input-color-bg-hover);
+      cursor: pointer;
+      transition: all 0.5s ease-out;
+
+      &:active {
+        background: url(../img/todo-list/Arrow.png) center center/50% 50% no-repeat var(--tabs-btn-active);
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  .tasks {
+    width: 656px;
+    margin: 0;
+    padding: 0;
+    grid-area: tasks;
+    background-color: var(--tabs-color-bg);
+    outline: 2px solid var(--input-out-color);
+    align-self: start;
+    border-radius: 10px;
+    padding-bottom: 15px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    &_check {
+      .tasks__circle {
+        background: url(../img/Check.svg) center center/60% 60% no-repeat,
+          linear-gradient(111.35deg, #e600fa 10.12%, rgba(82, 97, 234, 0) 82.22%);
+      }
+
+      .tasks__task {
+        text-decoration: line-through;
+      }
+
+      .tasks__task {
+        color: rgba(15, 144, 162, 0.57);
+      }
+    }
+
+    &__item {
+      height: 38px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    &__check-btn,
+    &__clear-btn {
+      width: 10%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      transition: transform 0.25s ease-out;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    &__clear-btn {
+      right: 0;
+    }
+
+    &__check-btn {
+      left: 0;
+    }
+
+    &__circle {
+      width: 28px;
+      height: 28px;
+      border: 2px solid #ad02fe;
+      border-radius: 50%;
+
+      &_clear {
+        background: url(../img/xmark.svg) center center/60% 60% no-repeat,
+          linear-gradient(111.35deg, #e600fa 10.12%, rgba(82, 97, 234, 0) 82.22%) !important;
+      }
+    }
+
+    &__task {
+      width: 74%;
+      border-bottom: 1px solid var(--tabs-color-line);
+      margin-left: 10%;
+      height: 94%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-size: 18px;
+      padding-left: 5%;
+      color: var(--main-color-text);
+      border-bottom: 2px solid;
+      border-color: var(--header-heigth);
+    }
+
+    &__info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      color: var(--main-color-text);
+      height: 30px;
+      font-size: 16px;
+      margin-top: 25px;
+    }
+
+    &__count-task {
+      width: 110px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+
+    &__count {
+      font-size: 20px;
+    }
+
+    &__clear {
+      width: 150px;
+      margin-right: 15px;
+      outline: 2px solid var(--input-out-color);
+      border: none;
+      background-color: var(--input-color-bg);
+      cursor: pointer;
+      transition: transform 0.25s ease-out;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: var(--input-color-bg-hover);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

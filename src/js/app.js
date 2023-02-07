@@ -3,6 +3,7 @@ import { checkWebp } from './modules/general/gulpScripts.js';
 import installTheme from './modules/theme.js';
 import tabs from './modules/tabs.js';
 import counter from './modules/counter.js';
+import todo from './modules/todo.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const themesClass = ['dark-theme', 'light-theme'],
@@ -14,5 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
   tabs();
   counter(storageState);
+  todo();
 
 });

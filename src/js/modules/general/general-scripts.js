@@ -38,5 +38,39 @@ function correctOverflow() {
   }
 }
 
+function changeTitle({ titleSelector, tabContent }) {
+  const titleElem = document.querySelector(titleSelector),
+        dataTypeContent = tabContent.getAttribute('data-type-content');
+  let title;
 
-export { changeSvg,  calcWithScroll, correctOverflow };
+  switch (dataTypeContent) {
+    case 'todo-list':
+      title = 'Список задач';
+      break;
+
+    case 'calc':
+      title = 'Калькулятор';
+      break;
+
+    case 'counter':
+      title = 'Таймер обратного отсчета';
+      break;
+
+    case 'gen-pass':
+      title = 'Генератор паролей';
+      break;
+
+    case 'stopwatch':
+      title = 'Секундомер';
+      break;
+  
+    default:
+      break;
+  }
+
+  if (title) titleElem.textContent = title;
+
+}
+
+
+export { changeSvg,  calcWithScroll, correctOverflow, changeTitle };

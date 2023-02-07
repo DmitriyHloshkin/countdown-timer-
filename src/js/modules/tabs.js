@@ -1,4 +1,4 @@
-import { changeSvg } from './general/general-scripts.js';
+import { changeSvg, changeTitle } from './general/general-scripts.js';
 
 const tabs = () => {
   
@@ -17,6 +17,7 @@ const tabs = () => {
 
         hideTabs();
         showTabs(tab);
+        
       });
 
       function showTabs(tabsElem) {
@@ -26,6 +27,10 @@ const tabs = () => {
               tabContent = document.querySelector(`${contentSelector}[data-type-content='${tabContentId}']`);
         
         tabContent.classList.add('show-grid');
+        changeTitle({
+          titleSelector: '.header__title', 
+          tabContent
+        });
       }
   
       function hideTabs() {
@@ -50,7 +55,6 @@ const tabs = () => {
       const svgElem = trigerTabsWindow.querySelector('use'),
             currentSvg = svgElem.getAttribute('xlink:href').replace(/.+#/, ''),
             toogleTheme = currentSvg === closeSvgId ? openSvgId : closeSvgId;
-
       tabsWindow.classList.toggle('show-block');
       changeSvg(svgElem, toogleTheme);
     });
