@@ -1,6 +1,7 @@
 import { showNoValidAnimation } from '../modules/general/animation.js';
+import { setStorage, getStorageProp } from '../modules/general/localStorage.js';
 
-const todo = () => {
+const todo = (storageState) => {
   const listTasks = document.querySelector('.todo-list ul'),
         btnNewTask = document.querySelector('.create-task__new-todo-btn'),
         newTask = document.querySelector('.create-task__new-todo'),
@@ -8,6 +9,11 @@ const todo = () => {
 
 
   calculateAndShowTasks();
+  fillTasksWithLocalStorage(listTasks);
+
+  window.addEventListener('keypress', e => {
+    if (e.code === 'Enter' && e.target.classList.contains('create-task__new-todo')) btnNewTask.dispatchEvent(new Event('click'));
+  });
 
   btnNewTask.addEventListener('click', () => {
     if (!newTask.value) {
@@ -15,30 +21,7 @@ const todo = () => {
       return;
     }
 
-    const task = document.createElement('li');
-    task.classList.add('tasks__item');
-
-    task.innerHTML = `
-          <button class="tasks__check-btn">
-            <div class="tasks__circle">
-            </div>
-          </button>
-
-          <input type="text" class="tasks__task" placeholder="Создайте новое задание...">
-        
-          <button class="tasks__clear-btn">
-            <div class="tasks__circle tasks__circle_clear">
-            </div>
-          </button>
-    `;
-
-    const taskTitle = task.querySelector('.tasks__task');
-
-    taskTitle.value = newTask.value;
-    listTasks.append(task);
-
-    newTask.value = '';
-    calculateAndShowTasks();
+    addTask(newTask.value); 
   });
 
   blockTasks.addEventListener('click', e => {
@@ -57,10 +40,9 @@ const todo = () => {
       calculateAndShowTasks();
     }
 
+    setStorage(getTasks());
 
   });
-
-
 
 
   function calculateAndShowTasks() {
@@ -71,6 +53,54 @@ const todo = () => {
   function clearTasks() {
     listTasks.querySelectorAll('li').forEach(elem => elem.remove());
     calculateAndShowTasks();
+  }
+
+  function addTask(title, check = false) {
+    const task = document.createElement('li');
+    check ? task.classList.add('tasks__item', 'tasks_check') : task.classList.add('tasks__item');
+
+    task.innerHTML = `
+          <button class="tasks__check-btn">
+            <div class="tasks__circle">
+            </div>
+          </button>
+
+          <input type="text" class="tasks__task" placeholder="Создайте новое задание...">
+        
+          <button class="tasks__clear-btn">
+            <div class="tasks__circle tasks__circle_clear">
+            </div>
+          </button>
+    `;
+
+    const taskTitle = task.querySelector('.tasks__task');
+
+
+    taskTitle.value = title;
+    taskTitle.addEventListener('input', () => setStorage(getTasks()));
+
+    listTasks.append(task);
+
+    newTask.value = '';
+    calculateAndShowTasks();
+    setStorage(getTasks());
+  }
+
+  function getTasks() {
+    const arrTasks = Array.from(document.querySelectorAll('.todo-list ul li')).map(task => {
+      return {
+              check: task.classList.contains('tasks_check'),
+              titleTask: task.querySelector('.tasks__task')?.value,
+            };
+    });
+
+    return {
+      tasks: arrTasks,
+    };
+  }
+
+  function fillTasksWithLocalStorage() {
+    getStorageProp('tasks')?.forEach( ({check, titleTask}) => addTask(titleTask, check));
   }
 
 };

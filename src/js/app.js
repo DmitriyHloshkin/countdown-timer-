@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
   tabs();
   counter(storageState);
-  todo();
+  todo(storageState);
 
 });

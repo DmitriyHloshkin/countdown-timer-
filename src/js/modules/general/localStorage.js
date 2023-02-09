@@ -15,6 +15,9 @@ const getStorageProp = (prop) => {
     
     case 'dateList':
       return JSON.parse(localStorage.getItem(prop));
+
+    case 'tasks':
+      return JSON.parse(localStorage.getItem(prop));
   }
 
 };
