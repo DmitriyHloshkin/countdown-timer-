@@ -1,7 +1,7 @@
 .dates-list {
   grid-area: dates;
   padding-left: 15px;
-  min-width: 482px;
+  min-width: 90%;
   padding-bottom: 20px;
 
   &__title {
@@ -64,7 +64,7 @@
   &__date,
   &__confirm-delete {
     height: 100%;
-    width: auto;
+    width: 40%;
     background: transparent;
     border: none;
     font-size: 16px;
@@ -118,5 +118,16 @@
 @media (max-width: 1200px) {
   .dates-list {
     align-self: start;
+  }
+}
+
+@media (max-width: 575px) {
+  .dates-list {
+    align-self: start;
+    width: 100%;
+    
+    &__date {
+      font-size: 10px;
+    }
   }
 }

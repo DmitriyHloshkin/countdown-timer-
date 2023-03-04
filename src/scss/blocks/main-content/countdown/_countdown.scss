@@ -85,3 +85,21 @@
     }
   }
 }
+
+@media (max-width: 575px) {
+  .countdown {
+    align-self: flex-start;
+
+    &__elem {
+      width: 50px;
+    }
+
+    #seconds,
+    #minutes,
+    #hours,
+    #days {
+      height: 50px;
+      font-size: 14px;
+    }
+  }
+}

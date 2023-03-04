@@ -10,12 +10,14 @@
     "tasks";
   grid-template-columns: 1fr;
   grid-template-rows: 100px auto;
+  align-items: center;
+  justify-items: center;
 
   .create-task {
     position: relative;
     color: var(--main-color-text);
     background: var(--tabs-color-bg);
-    width: 656px;
+    width: 100%;
     height: 50px;
     margin-top: 15px;
     border-radius: 30px;
@@ -33,8 +35,9 @@
       background: transparent;
       outline: none;
       border: none;
-      width: 100%;
+      // width: 100%;
       height: 100%;
+      width: 75%;
 
       &::placeholder {
         color: var(--main-color-text);
@@ -60,7 +63,7 @@
   }
 
   .tasks {
-    width: 656px;
+    width: 100%;
     margin: 0;
     padding: 0;
     grid-area: tasks;
@@ -193,5 +196,64 @@
         transform: scale(0.95);
       }
     }
+  }
+}
+
+@media (max-width: 575px) {
+
+  .todo-list {
+    grid-template-rows: 50px auto;
+
+    .create-task {
+      align-self: flex-start;
+      margin-top: 10px;
+      height: 35px;
+      width: 100%;
+
+      &__new-todo-btn {
+        width: 60px;
+      }
+
+      &__new-todo {
+        font-size: 80%;
+      }
+
+    }
+
+    .tasks {
+      align-self: flex-start;
+      width: 100%;
+      margin-top: 10px;
+
+      &__task {
+        font-size: 17px;
+        width: 68%;
+        margin-left: 13%;
+      }
+
+      &__item {
+        height: 30px;
+      }
+      
+      &__check-btn {
+        width: 15%;
+      }
+
+      &__clear-btn {
+        width: 15%;
+        top: 1px;
+      }
+
+      &__info {
+        margin-top: 18px;
+      }
+
+      &__clear {
+        font-size: 80%;
+        width: 120px;
+      }
+    }
+
+
   }
 }

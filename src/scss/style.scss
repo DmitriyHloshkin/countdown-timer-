@@ -7,15 +7,16 @@
 @import "blocks/tabs";
 @import "blocks/main-content/countdown/counter";
 
-@import "blocks/main-content/calc";
 @import "blocks/main-content/gen-pass";
 @import "blocks/main-content/stopwarch";
 @import "blocks/main-content/todo-list/todo-list";
+@import "blocks/main-content/calculate/calc";
 
 :root {
   --circle-size: 130px;
   --header-heigth: 65px;
   --header-heigth-575: 50px;
+  --calc-operation-color: #ffa800;
 }
 
 :root.dark-theme {
@@ -44,6 +45,9 @@
   // animation
   --anim-border-color: #d82b56;
   --anim-text-color: #d82b56;
+
+  // calc
+  --bg-color-btn: #002b4a;
 }
 
 :root.light-theme {
@@ -69,9 +73,9 @@
   --input-color-bg-hover: #d6f5ef;
   --circle-color-bg: white;
 
-    // animation
-    --anim-border-color: #d82b56;
-    --anim-text-color: #d82b56;
+  // animation
+  --anim-border-color: #d82b56;
+  --anim-text-color: #d82b56;
 }
 
 * {
@@ -88,7 +92,7 @@ body {
     "... tab_content ...";
 
   grid-template-rows: var(--header-heigth) 1fr;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 1fr 4fr 1fr;
 
   background: var(--main-color-bg);
   backdrop-filter: blur(10px);
@@ -96,6 +100,7 @@ body {
 
 .main-content {
   grid-area: tab_content;
+  width: 100%;
 }
 
 .show-block {
@@ -111,16 +116,27 @@ body {
 }
 
 @media (max-width: 1200px) {
+  body {
+    grid-template-columns: 0.5fr 4fr 0.5fr;
+  }
 }
 
 @media (max-width: 991px) {
 }
 
 @media (max-width: 767px) {
+  body {
+    grid-template-columns: 0 4fr 0;
+  }
 }
 
 @media (max-width: 575px) {
   body {
     grid-template-rows: var(--header-heigth-575) 1fr;
+  }
+
+  .main-content {
+    max-width: 100%;
+    overflow: hidden;
   }
 }

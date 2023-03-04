@@ -9,7 +9,8 @@
   font-size: 20px;
   background-color: var(--input-color-bg);
   transition: transform 0.25s ease-out;
-  
+  z-index: -2;
+
   &:hover {
     cursor: pointer;
   }
@@ -21,7 +22,6 @@
   &:hover {
     background-color: var(--input-color-bg-hover);
   }
-
 }
 
 .header-btn {
@@ -70,5 +70,8 @@
       width: 50%;
     }
   }
-}
 
+  .main-btn {
+    height: 25px;
+  }
+}
