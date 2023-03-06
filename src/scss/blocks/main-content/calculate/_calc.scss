@@ -24,12 +24,12 @@
     background: transparent;
     border-radius: 11px;
     font-size: 32px;
+    
   }
 
   &__history-operation {
     resize: none;
     border-radius: 11px;
-    // overflow: hidden;
   }
 
   &__operation {
@@ -42,7 +42,7 @@
     border: none;
     background: transparent;
     padding-left: 15px;
-    width: 100%;
+    width: 93%;
   }
 
   &__controls {
