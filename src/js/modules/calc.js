@@ -73,7 +73,7 @@ export default class Calc {
 
     try {
       const res = parseFloat(eval(evalStr).toFixed(10).substring(0, 11));
-      this.display.value = res === 'Infinity' || '-Infinity' ? 'Ошибка' : res;
+      this.display.value = res === Infinity || res === -Infinity ? 'Ошибка' : res;
     } catch (error) {
       this.display.value = 'Ошибка';
     }

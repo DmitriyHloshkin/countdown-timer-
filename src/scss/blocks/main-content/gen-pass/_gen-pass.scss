@@ -1,0 +1,173 @@
+.gen-pass {
+  display: none;
+  min-height: 100%;
+  grid-template-areas:
+    "pass option"
+    "btns saved";
+
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 150px 1fr;
+
+  &__current-pass {
+    display: flex;
+    align-items: center;
+    grid-area: pass;
+    justify-content: center;
+    font-size: 32px;
+    letter-spacing: 5.5px;
+  }
+
+  &__options {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.complexity {
+  width: 40%;
+  height: 90%;
+  border-color: var(--input-out-color);
+
+  &__name {
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
+  &__name,
+  legend {
+    font-size: 22px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.num__chars {
+  margin-left: 20px;
+  font-size: 22px;
+
+  h2 {
+    font-size: 22px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  select {
+    outline: none;
+    background-color: transparent;
+    border-color: var(--input-out-color);
+
+    option {
+      background-color: var(--main-color-bg);
+      font-size: 22px;
+      border: 2px solid var(--input-out-color);
+    }
+  }
+}
+
+.pass-list {
+  margin: 20px;
+
+  &__list {
+    padding: 0;
+  }
+
+  .dates-list__name::placeholder,
+  .dates-list__date::placeholder {
+    text-align: center;
+    color: var(--main-color-text);
+    opacity: 0.5;
+  }
+
+  .dates-list__name,
+  .dates-list__date {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gen-pass {
+    grid-template-rows: 170px 1fr;
+  }
+
+  .num__chars {
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  .complexity {
+    width: 100%;
+    height: 68%;
+
+    &__name,
+    legend {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .gen-pass {
+    grid-template-rows: 150px 1fr;
+  }
+
+  .num__chars {
+    h2 {
+      font-size: 13px;
+    }
+  }
+
+  .complexity {
+    &__name,
+    legend {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .gen-pass > .main-btn {
+    margin-left: 10px;
+    width: 90%;
+  }
+}
+
+@media (max-width: 575px) {
+  .gen-pass {
+    min-height: 100%;
+    grid-template-areas:
+      "pass"
+      "btns"
+      "option"
+      "saved";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 38px 137px 1fr;
+  }
+
+  .gen-pass > .main-btn {
+    grid-area: btns;
+  }
+
+  .complexity {
+    width: 90%;
+    &__name,
+    legend {
+      font-size: 12px;
+    }
+  }
+
+  .num__chars {
+    margin-left: 9px;
+    h2 {
+      font-size: 10px;
+    }
+  }
+}

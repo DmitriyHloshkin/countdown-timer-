@@ -1,4 +1,78 @@
 <section class="gen-pass" data-type-content="gen-pass">
 
+  <div class="gen-pass__current-pass">
+
+  </div>
+
+  <div class="gen-pass__options">
+
+    <fieldset class="complexity">
+      <legend>Выберите сложность пароля</legend>
+      <div class="complexity__wrapper">
+        <label>
+          <input name="complexity" type="radio">
+          <span class="complexity__name">Легкий</span>
+        </label>
+
+        <label>
+          <input name="complexity" type="radio" checked>
+          <span class="complexity__name">Обычный</span>
+        </label>
+
+        <label>
+          <input name="complexity" type="radio">
+          <span class="complexity__name">Сложный</span>
+        </label>
+
+      </div>
+    </fieldset>
+
+    <div class="num__chars">
+      <h2>Выберите количество символов в пароле:</h2>
+      <select name="num__chars" id="num__chars">
+        <option value="6">6</option>
+        <option value="8" selected>8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16">16</option>
+      </select>
+    </div>
+
+  </div>
+
+  <button class="main-btn">ГЕНЕРИРОВАТЬ</button>
+
+  <div class="pass-list">
+
+    <button class="dates-list__add main-btn">
+      <svg class="dates-list__svg">
+        <use xlink:href="./img/dates-list/dates-list-sprint.svg#plus"></use>
+      </svg>
+      Добавить пароль
+    </button>
+
+    <ul class="dates-list__list">
+      <li class="dates-list__item">
+
+        <button class="dates-list__btn-remove main-btn" title="удалить дату">
+          <svg class="dates-list__svg dates-list__svg-mr0">
+            <use xlink:href="./img/dates-list/dates-list-sprint.svg#minus"></use>
+          </svg>
+        </button>
+
+        <input type="text" class="dates-list__name" maxlength="25" placeholder="Аккаунт">
+
+        <div class="dates-list__confirm-delete">
+          <span>Желаете удалить дату?</span>
+          <button class="dates-list__yes-delete main-btn">Да</button>
+          <button class="dates-list__no-delete main-btn">Нет</button>
+        </div>
+
+        <input type="text" class="dates-list__date" placeholder="Пароль">
+
+      </li>
+    </ul>
+  </div>
 
 </section>
