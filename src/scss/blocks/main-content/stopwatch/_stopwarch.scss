@@ -1,0 +1,157 @@
+.stopwatch {
+  display: none;
+  min-height: 100%;
+
+  grid-template-areas:
+    "stopwatch"
+    "btns"
+    "circles";
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 210px 150px 1fr;
+
+  .display {
+    grid-area: stopwatch;
+    display: flex;
+    width: 370px;
+    height: 70%;
+    margin: auto;
+
+    &__minutes,
+    &__seconds,
+    &__miliseconds {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 auto;
+      font-size: 1000%;
+    }
+
+    &__miliseconds {
+      font-size: 500%;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding-bottom: 30px;
+    }
+
+    &__double-dot {
+      font-size: 1000%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 15px;
+
+      &_milisecond {
+        font-size: 500%;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding-bottom: 35px;
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .circle-list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
+    gap: 20px;
+
+    &__circle {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    &__num,
+    &__time,
+    span {
+      font-size: 20px;
+    }
+
+    &__num {
+      flex: 1 1 auto;
+      text-align: right;
+      padding-right: 5px;
+    }
+
+    span {
+      flex: 10 1 auto;
+    }
+
+    &__time {
+      flex: 1 1 auto;
+    }
+  }
+
+  #stopwatch-stop {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+  .stopwatch {
+    grid-template-rows: 130px 90px 1fr;
+
+    .display {
+      &__miliseconds {
+        padding-bottom: 0;
+      }
+
+      &__double-dot {
+        &_milisecond {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .stopwatch {
+    .display {
+      width: 250px;
+
+      &__minutes,
+      &__seconds,
+      &__miliseconds {
+        font-size: 700%;
+      }
+
+      &__miliseconds {
+        font-size: 300%;
+        padding-bottom: 17px;
+      }
+
+      &__double-dot {
+        font-size: 700%;
+
+        &_milisecond {
+          font-size: 300%;
+          padding-bottom: 19px;
+        }
+      }
+    }
+
+    .circle-list {
+      width: 70%;
+    }
+  }
+}
