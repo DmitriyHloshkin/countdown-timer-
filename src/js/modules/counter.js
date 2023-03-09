@@ -14,7 +14,7 @@ const counter = (storageState) => {
         btnAddDate = blockCounter.querySelector('.dates-list__add'),
         inputDate = blockCounter.querySelector('#select-date'),
         titleElem = blockCounter.querySelector('.counter__title span'),
-        dateList = blockCounter.querySelector('.dates-list__list'),
+        dateList = blockCounter.querySelector('.counter .dates-list__list'),
         countdown = blockCounter.querySelector('.countdown');
         
   changeInputDate();

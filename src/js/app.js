@@ -5,6 +5,7 @@ import tabs from './modules/tabs.js';
 import counter from './modules/counter.js';
 import todo from './modules/todo.js';
 import Calc from './modules/calc.js';
+import GenPass from './modules/gen-pass.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const themesClass = ['dark-theme', 'light-theme'],
@@ -18,11 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
   counter(storageState);
   todo(storageState);
 
-  const calc = new Calc({
+  new Calc({
     display: '.calc__operation',
     histiryDisplay: '.calc__history-operation',
     controlPanel: '.calc__controls',
-  });
-  calc.init();
+  }).init();
+
+  new GenPass({
+    genBtn: '#gen',
+    addPassBtn: '#add-pass',
+    passList: '.gen-pass .dates-list__list',
+    passBlock: '.gen-pass__current-pass',
+    storageState: storageState,
+    options: {
+      complexity: 'fieldset input',
+      numChars: '#num__chars',
+    }
+  }).init();
 
 });

@@ -10,17 +10,17 @@
       <legend>Выберите сложность пароля</legend>
       <div class="complexity__wrapper">
         <label>
-          <input name="complexity" type="radio">
+          <input name="complexity" data-type="easy" type="radio">
           <span class="complexity__name">Легкий</span>
         </label>
 
         <label>
-          <input name="complexity" type="radio" checked>
+          <input name="complexity" data-type="normal" type="radio" checked>
           <span class="complexity__name">Обычный</span>
         </label>
 
         <label>
-          <input name="complexity" type="radio">
+          <input name="complexity" data-type="hard" type="radio">
           <span class="complexity__name">Сложный</span>
         </label>
 
@@ -41,11 +41,11 @@
 
   </div>
 
-  <button class="main-btn">ГЕНЕРИРОВАТЬ</button>
+  <button class="main-btn" id="gen">ГЕНЕРИРОВАТЬ</button>
 
   <div class="pass-list">
 
-    <button class="dates-list__add main-btn">
+    <button class="dates-list__add main-btn" id="add-pass">
       <svg class="dates-list__svg">
         <use xlink:href="./img/dates-list/dates-list-sprint.svg#plus"></use>
       </svg>
@@ -53,7 +53,7 @@
     </button>
 
     <ul class="dates-list__list">
-      <li class="dates-list__item">
+      <!-- <li class="dates-list__item">
 
         <button class="dates-list__btn-remove main-btn" title="удалить дату">
           <svg class="dates-list__svg dates-list__svg-mr0">
@@ -71,7 +71,7 @@
 
         <input type="text" class="dates-list__date" placeholder="Пароль">
 
-      </li>
+      </li> -->
     </ul>
   </div>
 

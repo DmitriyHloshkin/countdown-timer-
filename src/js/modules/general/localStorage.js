@@ -18,6 +18,12 @@ const getStorageProp = (prop) => {
 
     case 'tasks':
       return JSON.parse(localStorage.getItem(prop));
+
+    case 'genPass':
+      return JSON.parse(localStorage.getItem(prop));
+
+    default:
+      return {};
   }
 
 };
