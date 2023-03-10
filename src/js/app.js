@@ -6,6 +6,7 @@ import counter from './modules/counter.js';
 import todo from './modules/todo.js';
 import Calc from './modules/calc.js';
 import GenPass from './modules/gen-pass.js';
+import stopwatch from './modules/stopwatch.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const themesClass = ['dark-theme', 'light-theme'],
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tabs();
   counter(storageState);
   todo(storageState);
+  stopwatch();
 
   new Calc({
     display: '.calc__operation',
