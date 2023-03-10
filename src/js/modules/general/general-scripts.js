@@ -63,6 +63,10 @@ function changeTitle({ titleSelector, tabContent }) {
     case 'stopwatch':
       title = 'Секундомер';
       break;
+
+    case 'qr-code':
+      title = 'QR-code генератор';
+      break;
   
     default:
       break;

@@ -7,6 +7,7 @@ import todo from './modules/todo.js';
 import Calc from './modules/calc.js';
 import GenPass from './modules/gen-pass.js';
 import stopwatch from './modules/stopwatch.js';
+import GenQR from './modules/gen-qr.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const themesClass = ['dark-theme', 'light-theme'],
@@ -36,6 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
       complexity: 'fieldset input',
       numChars: '#num__chars',
     }
+  }).init();
+
+  new GenQR({
+    qrWrapper: '.qr-code .code__img',
+    qrString: '.qr-code .options__gen-text',
+    btnGen: '.qr-code .options__gen-code',
+    btnSaveCode: '.qr-code .code__download-btn',
   }).init();
 
 });
